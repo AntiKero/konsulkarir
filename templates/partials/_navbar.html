@@ -42,13 +42,13 @@
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
             <li
-            {% if 'index' in request.path %}
+            {% if 'dashboard' in request.path %}
               class="nav-item active mr-3"
             {% else %}
               class="nav-item mr-3"
             {% endif %}
             >
-              <a class="nav-link" href="{% url 'index' %}">
+              <a class="nav-link" href="{% url 'dashboard' %}">
                Welcome {{ user.username }} (Dashboard)</a>
             </li>
             <li class="nav-item mr-3">

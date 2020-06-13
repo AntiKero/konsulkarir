@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Listing
+from .models import Listing, Tag
 
 class ListingAdmin(admin.ModelAdmin):
   list_display = ('id', 'title', 'consultant', 'price', 'list_date', 'is_published')
@@ -19,4 +19,11 @@ class ListingAdmin(admin.ModelAdmin):
   def email(self, obj):
         return obj.user.email
 
+class TagAdmin(admin.ModelAdmin):
+  list_display = ('id', 'tag_name',)
+  list_display_links = ('id', 'tag_name',)
+  search_fields = ('tag_name',)
+  list_per_page = 25       
+
 admin.site.register(Listing, ListingAdmin)
+admin.site.register(Tag, TagAdmin)

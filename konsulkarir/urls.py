@@ -11,6 +11,7 @@ urlpatterns = [
     path('listings/', include('listings.urls')),
     path('accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
+    path('contacts/', include('contacts.urls')),
     path('chatapp/', include('chatapp.urls')),
     path('rooms/', include('chat.urls')),
     url('rooms/(?P<slug>[-\w]+)/$', chat.room_detail, name="room_detail")

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Consultant, Job, Tag
+from .models import Consultant, Job
 
 
 class ConsultantAdmin(admin.ModelAdmin):
@@ -10,7 +10,7 @@ class ConsultantAdmin(admin.ModelAdmin):
   list_per_page = 25
 
   def id(self, obj):
-        return obj.user.id
+        return obj.user.username
   
   def first_name(self, obj):
         return obj.user.first_name 
@@ -28,12 +28,7 @@ class JobAdmin(admin.ModelAdmin):
   search_fields = ('job_name',)
   list_per_page = 25
 
-class TagAdmin(admin.ModelAdmin):
-  list_display = ('id', 'tag_name',)
-  list_display_links = ('id', 'tag_name',)
-  search_fields = ('tag_name',)
-  list_per_page = 25
+
 
 admin.site.register(Consultant, ConsultantAdmin,)
 admin.site.register(Job, JobAdmin,)
-admin.site.register(Tag, TagAdmin,)

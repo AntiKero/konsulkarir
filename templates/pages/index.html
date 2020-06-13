@@ -13,62 +13,7 @@
                 <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores
                     eveniet vel nostrum magnam
                     voluptatum tempore! Consectetur, id commodi!</p>
-                <div class="search">
-                    <form action="search.html">
-                        <!-- Form Row 1 -->
-                        <div class="form-row">
-                            <div class="col-md-4 mb-3">
-                                <label class="sr-only">Keywords</label>
-                                <input type="text" name="keywords" class="form-control"
-                                    placeholder="Keyword (IT, Engineer, Marketing, etc)">
-                            </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label class="sr-only">Tags</label>
-                                <select name="tags" class="form-control">
-                                    <option selected="true" disabled="disabled">What topic you want to talk about?</option>
-                                    <option value="CV Review">CV Review</option>
-                                    <option value="Career Path">Career Path</option>
-                                    <option value="Interview Tips">Interview Tips</option>
-                                    <option value="Resignation">Resignation</option>
-                                    <option value="Employment Contract">Employment Contract</option>p
-                                    <option value="Problem in your current office">Problem in your current office</option>
-
-                                </select>
-                            </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label class="sr-only">HR or Specialist</label>
-                                <select name="job_type" class="form-control">
-                                    <option selected="true" disabled="disabled">Want to consult with HR or Specialist?</option>
-                                    <option value="HR">HR</option>
-                                    <option value="Specialist">Specialist</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Form Row 2 -->
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <label class="sr-only">Experience</label>
-                                <select name="experience" class="form-control">
-                                    <option selected="true" disabled="disabled">Experience</option>
-                                    <option value="3-5">3-5</option>
-                                    <option value="6-10">6-10</option>
-                                    <option value="10+">10+</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <select name="age" class="form-control" id="type">
-                                    <option selected="true" disabled="disabled">Age</option>
-                                    <option value="20-30">20-30</option>
-                                    <option value="30-40">30-40</option>
-                                    <option value="40+">40+</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
-                    </form>
-                </div>
+                    {% include 'partials/_search.html' %}
             </div>
         </div>
     </div>

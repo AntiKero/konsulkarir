@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'consultants.apps.ConsultantsConfig',
     'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -153,10 +154,22 @@ STATICFILES_DIRS = [
 ]
 
 
-TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID', None)
-TWILIO_API_KEY = os.environ.get('TWILIO_API_KEY', None)
-TWILIO_API_SECRET = os.environ.get('TWILIO_API_SECRET', None)
-TWILIO_CHAT_SERVICE_SID = os.environ.get('TWILIO_CHAT_SERVICE_SID', None)
+#TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID', None)
+#TWILIO_API_KEY = os.environ.get('TWILIO_API_KEY', None)
+#TWILIO_API_SECRET = os.environ.get('TWILIO_API_SECRET', None)
+#TWILIO_CHAT_SERVICE_SID = os.environ.get('TWILIO_CHAT_SERVICE_SID', None)
+
+TWILIO_ACCOUNT_SID = 'AC3474991374127fe13a82f2329a8833ec'
+
+TWILIO_CHAT_SERVICE_SID = 'ISdcd0797d91454899a6967e188d13130e'
+
+TWILIO_SYNC_SID = 'IS1a1275f1c8f32d4182a0d276304b3d5e'
+
+TWILIO_API_KEY = 'SK699b582aa96ec8c9a36629ebbb4a1d52'
+
+TWILIO_API_SECRET = '75EynZWCSYWoWKYlGDhLIOk1cjBBRniT'
+
+TWILIO_AUTH_TOKEN = '69218e0f09ed7a0bca501e41ab9eec85'
 
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

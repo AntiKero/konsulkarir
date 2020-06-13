@@ -1,0 +1,56 @@
+<div class="search">
+    <form action="{% url 'search' %}">
+        <!-- Form Row 1 -->
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label class="sr-only">Keywords</label>
+                <input type="text" name="keywords" class="form-control"
+                    placeholder="Keyword (IT, Engineer, Marketing, etc)" value="{{ value.keywords }}">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="sr-only">Tags</label>
+                <select name="tags" class="form-control">
+                    <option selected="true" disabled="disabled">What topic you want to talk about?</option>
+                    {% for key,value in topic_choices.items %}
+                        <option value="{{ key }}"
+                        {% if key == values.tags %}
+                            selected
+                        {% endif %}
+                        >{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <!-- Form Row 2 -->
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label class="sr-only">Experience</label>
+                <select name="experience" class="form-control">
+                    <option selected="true" disabled="disabled">Minimum Experience (year)</option>
+                    {% for key,value in experience_choices.items %}
+                        <option value="{{ key }}"
+                        {% if key == values.experience %}
+                            selected
+                        {% endif %}
+                        >{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="sr-only">HR or Specialist</label>
+                <select name="job_type" class="form-control">
+                    <option selected="true" disabled="disabled">Want to consult with HR or Specialist?</option>
+                    {% for key,value in type_choices.items %}
+                    <option value="{{ key }}"
+                    {% if key == values.job_type %}
+                        selected
+                    {% endif %}
+                    >{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+    </form>
+</div>

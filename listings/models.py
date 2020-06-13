@@ -2,11 +2,19 @@ from django.db import models
 from datetime import datetime
 from consultants.models import Consultant
 
+class Tag(models.Model):
+  id = models.AutoField(primary_key=True)
+  tag_name = models.CharField(max_length=50)
+  def __str__(self):
+    return self.tag_name
+
+
 class Listing(models.Model):
   id = models.AutoField(primary_key=True)
   consultant = models.ForeignKey(Consultant, on_delete=models.DO_NOTHING)
   title = models.CharField(max_length=(200))
   price = models.IntegerField()
+  tags = models.ManyToManyField(Tag)
   photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
   photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
   photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
