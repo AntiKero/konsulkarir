@@ -12,13 +12,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-dotenv_path = os.path.join(BASE_DIR, '.env')
-load_dotenv(dotenv_path)
 
 
 # Quick-start development settings - unsuitable for production
@@ -35,9 +33,6 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-TWILIO_ACCOUNT_SID = 'AC3474991374127fe13a82f2329a8833ec'
-TWILIO_AUTH_TOKEN = '69218e0f09ed7a0bca501e41ab9eec85'
-
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
@@ -51,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'chat.apps.ChatConfig',
+    'channels',
+    'chatchannels',
+
 ]
 
 MIDDLEWARE = [
@@ -83,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-#ASGI_APPLICATION = "konsulkarir.routing.application"
+ASGI_APPLICATION = "konsulkarir.routing.application"
 
 CHANNEL_LAYERS = {
     'default': {
@@ -153,42 +150,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'konsulkarir/static')
 ]
 
-
-#TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID', None)
-#TWILIO_API_KEY = os.environ.get('TWILIO_API_KEY', None)
-#TWILIO_API_SECRET = os.environ.get('TWILIO_API_SECRET', None)
-#TWILIO_CHAT_SERVICE_SID = os.environ.get('TWILIO_CHAT_SERVICE_SID', None)
-
-TWILIO_ACCOUNT_SID = 'AC3474991374127fe13a82f2329a8833ec'
-
-TWILIO_CHAT_SERVICE_SID = 'ISdcd0797d91454899a6967e188d13130e'
-
-TWILIO_SYNC_SID = 'IS1a1275f1c8f32d4182a0d276304b3d5e'
-
-TWILIO_API_KEY = 'SK699b582aa96ec8c9a36629ebbb4a1d52'
-
-TWILIO_API_SECRET = '75EynZWCSYWoWKYlGDhLIOk1cjBBRniT'
-
-TWILIO_AUTH_TOKEN = '69218e0f09ed7a0bca501e41ab9eec85'
-
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-#Twilio Settings
-# TWILIO_ACCT_SID = os.environ.get('TWILIO_ACCT_SID')
-# TWILIO_CHAT_SID = os.environ.get('TWILIO_CHAT_SID')
-# TWILIO_SYNC_SID = os.environ.get('TWILIO_SYNC_SID')
-# TWILIO_API_SID = os.environ.get('TWILIO_API_SID')
-# TWILIO_API_SECRET = os.environ.get('TWILIO_API_SECRET')
-
-# TWILIO_ACCT_SID = os.environ['TWILIO_ACCT_SID']
-# TWILIO_CHAT_SID = os.environ['TWILIO_CHAT_SID']
-# TWILIO_SYNC_SID = os.environ['TWILIO_SYNC_SID']
-# TWILIO_API_SID = os.environ['TWILIO_API_SID']
-# TWILIO_API_SECRET = os.environ['TWILIO_API_SECRET']
-
-# TWILIO_ACCT_SID = os.environ.get('TWILIO_ACCOUNT_SID', None)
-# TWILIO_API_SID = os.environ.get('TWILIO_API_KEY', None)
-# TWILIO_API_SECRET = os.environ.get('TWILIO_API_SECRET', None)
-# TWILIO_CHAT_SID = os.environ.get('TWILIO_CHAT_SERVICE_SID', None)
