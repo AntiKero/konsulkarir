@@ -35,11 +35,11 @@ def search(request):
     if keywords:
       queryset_list = queryset_list.filter(title__icontains=keywords)
 
-  # Tags
-  if 'tags' in request.GET:
-    tags = request.GET['tags']
-    if tags: 
-      queryset_list = queryset_list.filter(consultant__tag__tag_name__iexact=tags)
+  # Tag
+  if 'tag' in request.GET:
+    tag = request.GET['tag']
+    if tag: 
+      queryset_list = queryset_list.filter(consultant__tag__tag_name__iexact=tag)
 
 
   # Experience

@@ -99,14 +99,14 @@
     }
 
     function createMessage(data) {
-      var author = data['author'];
+      var user = data['user'];
       var msgListTag = document.createElement('li');
       var imgTag = document.createElement('img');
       var pTag = document.createElement('p');
       pTag.textContent = data.content;
       imgTag.src = 'http://emilcarlsson.se/assets/mikeross.png';
       
-      if (author === username) {
+      if (user === username) {
         msgListTag.className = 'sent';
       } else {
         msgListTag.className = 'replies';
