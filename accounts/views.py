@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
+from consultants.models import Consultant, Job
 
 def register(request):
   if request.method == 'POST':
@@ -69,3 +70,12 @@ def dashboard(request):
     'contacts': user_contacts
   }
   return render(request, 'accounts/dashboard.html', context)
+
+
+def view_profile(request, pk=None):
+  if pk:
+      user = User.objects.get(pk=pk)
+  else:
+      user = request.user
+  args = {'user': user}
+  return render(request, 'accounts/profile.html', args)  

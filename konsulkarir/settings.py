@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'konsulkarir.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'konsulkarirmaindb',
+        'NAME': 'konsulkarir5',
         'USER': 'postgres',
         'PASSWORD': 'aldi005',
         'HOST': 'localhost',

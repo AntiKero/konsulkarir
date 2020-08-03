@@ -26,5 +26,5 @@ class Consultant(models.Model):
   totalsession = models.IntegerField(default=0)
   is_mvp = models.BooleanField(default=False)
   is_online = models.BooleanField(default=False)
-  def __str__(self):
+  def __str__(self): 
     return self.user.first_name + ' ' + self.user.last_name

@@ -4,32 +4,26 @@ from django.db import models
 User = get_user_model()
 
 
-class Contact(models.Model):
-    user = models.ForeignKey(
-        User, related_name='subscription', on_delete=models.CASCADE)
-    subscription = models.ManyToManyField('self', blank=True)
+class Chat(models.Model):
+    participant1 = models.OneToOneField(User, related_name='user1', on_delete=models.DO_NOTHING)
+    participant2 = models.OneToOneField(User, related_name='user2', on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return self.user.username
-
+        return "{}".format(self.pk)
 
 class Message(models.Model):
-    contact = models.ForeignKey(
-        Contact, related_name='messages', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='user', on_delete=models.DO_NOTHING)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.contact.user.username
+    #chats = models.ManyToManyField(Chat, blank=False, default="")
+    chats = models.ForeignKey(Chat, blank=False, default="", on_delete=models.DO_NOTHING)
 
     def last_10_messages():
         return Message.objects.order_by('-timestamp').all()[:10]
 
 
-class Chat(models.Model):
-    participants = models.ManyToManyField(
-        Contact, related_name='chats', blank=True)
-    messages = models.ManyToManyField(Message, blank=True)
-
     def __str__(self):
-        return "{}".format(self.pk)
+        return self.contact.user.username
+
+
+
