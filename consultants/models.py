@@ -13,7 +13,7 @@ class Job(models.Model):
     return self.job_name
 
 class Consultant(models.Model):
-  user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE, primary_key=True)
+  user = models.OneToOneField(User, related_name='consultant', on_delete=models.CASCADE, primary_key=True)
   job = models.ForeignKey(Job, on_delete=models.DO_NOTHING, default='')
   job_industry = models.CharField(max_length=50)
   job_experience = models.IntegerField(default=3)

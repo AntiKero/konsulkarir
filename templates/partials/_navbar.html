@@ -27,6 +27,24 @@
           >
             <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
           </li>
+          <li
+          {% if 'news' in request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+          >
+            <a class="nav-link" href="{% url 'news' %}">News</a>
+          </li>
+          <li
+          {% if 'jobportal' in request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+          >
+            <a class="nav-link" href="{% url 'vacancy' %}">Job Portal</a>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">

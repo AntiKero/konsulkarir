@@ -3,6 +3,11 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
 from consultants.models import Consultant, Job
+from listings.models import Listing
+from django.urls import reverse
+from accounts.forms import EditProfileForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 
 def register(request):
   if request.method == 'POST':
@@ -77,5 +82,18 @@ def view_profile(request, pk=None):
       user = User.objects.get(pk=pk)
   else:
       user = request.user
-  args = {'user': user}
-  return render(request, 'accounts/profile.html', args)  
+  context = {'user': user}
+
+  return render(request, 'accounts/profile.html', context)
+
+def edit_profile(request):
+  if request.method == 'POST':
+      form = EditProfileForm(request.POST, instance=request.user)
+
+      if form.is_valid():
+          form.save()
+          return redirect(reverse('accounts:view_profile'))
+  else:
+      form = EditProfileForm(instance=request.user)
+      context = {'form': form}
+      return render(request, 'accounts/edit_profile.html', context) 

@@ -12,14 +12,14 @@ class Chat(models.Model):
         return "{}".format(self.pk)
 
 class Message(models.Model):
-    author = models.ForeignKey(User, related_name='user', on_delete=models.DO_NOTHING)
+    author = models.ForeignKey(User, related_name='author', on_delete=models.DO_NOTHING)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    #chats = models.ManyToManyField(Chat, blank=False, default="")
-    chats = models.ForeignKey(Chat, blank=False, default="", on_delete=models.DO_NOTHING)
+    chat = models.ForeignKey(Chat, blank=False, default="", on_delete=models.DO_NOTHING)
 
     def last_10_messages():
-        return Message.objects.order_by('-timestamp').all()[:10]
+        currentroom = Chat.objects.get
+        return Message.objects.order_by('timestamp').all()[:10]
 
 
     def __str__(self):

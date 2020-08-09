@@ -11,8 +11,3 @@ def room(request, room_name):
         'username': mark_safe(json.dumps(request.user.username)),
     })
 
-
-
-def get_last_10_messages(chatId):
-    chat = get_object_or_404(Chat, id=chatId)
-    return chat.messages.order_by('-timestamp').all()[:10]

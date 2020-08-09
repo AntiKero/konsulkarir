@@ -52,8 +52,9 @@
                   <tr>
                     <td>{{ contact.id }}</td>
                     <td>{{ contact.listing }}</td>
+                    <td>{{ contact.message }}</td>
                     <td>
-                      <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                      <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">Go to Room Chat</a>
                     </td>
                   </tr>
                 {% endfor %}

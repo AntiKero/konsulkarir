@@ -16,33 +16,27 @@
     <link rel="stylesheet" href="{% static 'css/chatstyle.css' %}" />
   </head>
 
-<body>
-  <div id="frame">
-    <div class="content">
-      <div class="contact-profile">
-        <p>{{ username }}</p>
-      </div>
-      <div class="messages">
-        <ul id="chat-log">
-          {% comment %} <li class="sent">>
-            <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
-          </li>
-          <li class="replies">
-            <p>When you're backed against the wall, break the god damn thing down.</p>
-          </li> {% endcomment %}
-        </ul>
-      </div>
-      <div class="message-input">
-        <div class="wrap">
-        <input id="chat-message-input" type="text" placeholder="Write your message..." />
-        <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
-        <button id="chat-message-submit" class="submit">
-          <i class="fa fa-paper-plane" aria-hidden="true"></i>
-        </button>
+  <body>
+    <div id="frame">
+      <div class="content">
+        <div class="contact-profile">
+          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+          <p>Alexander</p>
+        </div>
+        <div class="messages">
+          <ul id="chat-log">
+          </ul>
+        </div>
+        <div class="message-input">
+          <div class="wrap">
+          <input id="chat-message-input" type="text" placeholder="Write your message..." />
+          <button id="chat-message-submit" class="submit">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 <script src="{% static 'js/chatchannels.js' %}"></script>
 <script src="{% static 'js/reconnecting-websocket.js' %}"></script>

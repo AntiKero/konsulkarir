@@ -34,11 +34,11 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'pages.apps.PagesConfig',
-    'listings.apps.ListingsConfig',
-    'consultants.apps.ConsultantsConfig',
-    'accounts.apps.AccountsConfig',
-    'contacts.apps.ContactsConfig',
+    'pages',
+    'listings',
+    'consultants',
+    'accounts',
+    'contacts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'channels',
     'chatchannels',
-
+    'blog',
+    'jobportal',
 ]
 
 MIDDLEWARE = [

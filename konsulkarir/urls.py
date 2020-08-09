@@ -12,5 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacts/', include('contacts.urls')),
     path('chat/', include('chatchannels.urls', namespace='chat')),
+    path('news/', include('blog.urls')),
+    path('jobportal/', include('jobportal.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
