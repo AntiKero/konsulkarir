@@ -86,7 +86,7 @@
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8 mt-3 left">
-            {% for vacancy in vacancy_list %}
+            {% for vacancy in vacancies %}
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">{{ vacancy.title }}</h2>
@@ -99,4 +99,6 @@
         </div>
     </div>
 </div>
+
+
 {%endblock%}

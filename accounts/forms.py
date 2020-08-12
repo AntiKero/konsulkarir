@@ -14,8 +14,3 @@ class EditProfileForm(UserChangeForm):
             'last_name',
             'password'
         )
-    class Meta:
-        model = Consultant
-        fields = (
-            'description',
-        )

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Vacancy
+from .models import Vacancy, Company, Specialization
 
 class VacancyAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status','created_on')
@@ -8,3 +8,5 @@ class VacancyAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
   
 admin.site.register(Vacancy, VacancyAdmin)
+admin.site.register(Company)
+admin.site.register(Specialization)
