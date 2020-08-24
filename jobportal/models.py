@@ -38,6 +38,7 @@ class Vacancy(models.Model):
     description = models.TextField()
     experience_required = models.IntegerField()
     picture =  models.ImageField(upload_to='jobportal/%Y/%m/%d/')
+    post_picture =  models.ImageField(upload_to='jobportal/%Y/%m/%d/', blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     expired_on = models.DateTimeField()
     status = models.IntegerField(choices=STATUS, default=0)

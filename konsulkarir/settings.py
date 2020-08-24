@@ -39,17 +39,17 @@ INSTALLED_APPS = [
     'consultants',
     'accounts',
     'contacts',
+    'channels',
+    'chatchannels',
+    'blog',
+    'jobportal',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    'channels',
-    'chatchannels',
-    'blog',
-    'jobportal',
+    'django.contrib.humanize',  
 ]
 
 MIDDLEWARE = [
@@ -64,6 +64,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'konsulkarir.urls'
+
 
 TEMPLATES = [
     {
@@ -152,3 +153,4 @@ STATICFILES_DIRS = [
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
