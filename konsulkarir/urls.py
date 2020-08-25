@@ -11,7 +11,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
     path('contacts/', include('contacts.urls')),
-    path('chat/', include('chatchannels.urls', namespace='chat')),
+    path('chat/', include('chatchannels.urls')),
     path('news/', include('blog.urls')),
     path('jobportal/', include('jobportal.urls')),
     

@@ -44,6 +44,8 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Title</th>
+                  <th scope="col">Messages</th>
+                  <th scope="col">Consultant</th>
                   <th></th>
                 </tr>
               </thead>
@@ -53,16 +55,42 @@
                     <td>{{ contact.id }}</td>
                     <td>{{ contact.listing }}</td>
                     <td>{{ contact.message }}</td>
+                    <td>{{ contact.consultant }}</td>
                     <td>
-                      <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">Go to Room Chat</a>
+                      <a class="btn btn-light" href="{% url 'chat' contact.chatroom %}">Go to Room Chat</a>
                     </td>
                   </tr>
                 {% endfor %}
               </tbody>
             </table>
-          {% else %}
-            <p>You have not made any inquiries</p>
           {% endif %}
+          {% if consultants %}
+          <p>Here are the User Messages that you have inquired you</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Messages</th>
+                <th scope="col">Sender</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for consultant in consultants %}
+                <tr>
+                  <td>{{ consultant.id }}</td>
+                  <td>{{ consultant.listing }}</td>
+                  <td>{{ consultant.message }}</td>
+                  <td>{{ consultant.user }}</td>
+                  <td>
+                    <a class="btn btn-light" href="{% url 'chat' consultant.chatroom %}">Go to Room Chat</a>
+                  </td>
+                </tr>
+              {% endfor %}
+              {% endif %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

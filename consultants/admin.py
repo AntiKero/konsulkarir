@@ -8,6 +8,13 @@ class ConsultantAdmin(admin.ModelAdmin):
   list_display_links = ('id', 'first_name', 'last_name', )
   search_fields = ('name',)
   list_per_page = 25
+  
+  def get_queryset(self, request):
+      qs = super(ConsultantAdmin, self).get_queryset(request)
+      if request.user.is_superuser:
+            return qs
+      return qs.filter(user=request.user)
+      
 
   def id(self, obj):
         return obj.user.username

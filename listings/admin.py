@@ -10,6 +10,12 @@ class ListingAdmin(admin.ModelAdmin):
   search_fields = ('id', 'consultant', 'price', 'list_date', )
   list_per_page = 25
 
+  def get_queryset(self, request):
+      qs = super(ListingAdmin, self).get_queryset(request)
+      if request.user.is_superuser:
+            return qs
+      return qs.filter(consultant__user_id=request.user)
+
   def first_name(self, obj):
         return obj.user.first_name 
 

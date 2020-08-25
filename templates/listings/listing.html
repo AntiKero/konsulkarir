@@ -168,7 +168,7 @@
                     {% if user.is_authenticated %}
                     <input type="hidden" name="user_id" value="{{ user.id }}">
                     <input type="hidden" name="consultant_email" value="{{ listing.consultant.user.email }}">
-                    <input type="hidden" name="consultant" value="{{ listing.consultant.user.id }}">
+                    <input type="hidden" name="consultant_id" value="{{ listing.consultant.user.id }}">
                     <input type="hidden" name="listing_id" value="{{ listing.id }}">
                     <div class="form-group">
                         <label for="listing_name" class="col-form-label">Title:</label>

@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Konsul Karir CHAT {% block title %}{% endblock %}</title>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
     <script src="https://use.typekit.net/hoy3lrg.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -17,11 +18,15 @@
   </head>
 
   <body>
+  {% if user == chat.participant1 or user == chat.participant2 %}  
     <div id="frame">
       <div class="content">
         <div class="contact-profile">
-          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-          <p>Alexander</p>
+          {% if user == chat.participant1 %}
+            <p>{{chat.participant2}}</p>
+          {% else %}  
+            <p>{{chat.participant1}}</p>
+          {% endif %}
         </div>
         <div class="messages">
           <ul id="chat-log">
@@ -37,6 +42,7 @@
         </div>
       </div>
     </div>
+
 
 <script src="{% static 'js/chatchannels.js' %}"></script>
 <script src="{% static 'js/reconnecting-websocket.js' %}"></script>
@@ -89,7 +95,7 @@
     };
 
     function fetchMessages() {
-      chatSocket.send(JSON.stringify({'command': 'fetch_messages' }));
+      chatSocket.send(JSON.stringify({'command': 'fetch_messages', 'chat': roomName }));
     }
 
     function createMessage(data) {
@@ -110,6 +116,9 @@
     }
     
 </script>
+{% else %}
+  <p>Anda tidak mempunyai akses untuk melihat chat ini</p>
+{% endif %}
 </body>
 
 </html>

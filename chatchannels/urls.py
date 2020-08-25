@@ -1,9 +1,9 @@
 from django.urls import path, re_path
-from .views import room
+from . import views
 
 
-app_name = 'chatchannels'
+#app_name = 'chatchannels'
 
 urlpatterns = [
-    re_path(r'^(?P<room_name>[^/]+)/$', room, name='room'),
+   re_path(r'^(?P<room_name>[^/]+)/$', views.room, name='chat'),
 ]
